@@ -25,14 +25,18 @@ from tests.steps import (
 @pytest.mark.parametrize('browser', CLIENT_BROWSERS)
 @pytest.mark.parametrize('device_type', CLIENT_DEVICE_TYPE)
 def test_logout_application(
-    request: FixtureRequest, make_app: Callable[..., Application], browser: str, device_type: str
+    request: FixtureRequest,
+    get_captcha_image: Callable[..., None],
+    make_app: Callable[..., Application],
+    browser: str,
+    device_type: str,
 ) -> None:
 
     app = make_app(browser, device_type)
 
     open_start_page(app)
 
-    sign_in(app, request.config.option.username, request.config.option.password)
+    sign_in(app, request, get_captcha_image)
     open_operator_to_page(app)
 
     open_subsidies_page(app)
