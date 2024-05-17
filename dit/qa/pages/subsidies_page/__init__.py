@@ -2,11 +2,10 @@ from __future__ import annotations
 
 from coms.qa.core.helpers import wait_for
 from coms.qa.frontend.pages import Page
-from coms.qa.frontend.pages.component import Component
+from coms.qa.frontend.pages.component import Component, Components
 from selenium.common.exceptions import NoSuchElementException
 
 from dit.qa.pages.operator_to_page.components.menu import Menu
-from dit.qa.pages.subsidies_page.components.tasks import Tasks
 
 __all__ = ['SubsidiesPage']
 
@@ -14,7 +13,7 @@ __all__ = ['SubsidiesPage']
 class SubsidiesPage(Page):
     menu = Menu(css='div[class*="menu_top"]')
     table_subsidies = Component(xpath="//h1[text()='Субсидии ']")
-    tasks = Tasks(css="[class*='td_white']")
+    tasks = Components(css="a[href*='/ru/arm/admin/sub/new/?action=request']")
     search = Component(id='search_form')
 
     def wait_for_loading(self) -> None:

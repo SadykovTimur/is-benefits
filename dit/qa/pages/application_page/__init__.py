@@ -29,8 +29,9 @@ class ApplicationPage(Page):
                 assert self.transfer.visible
                 assert self.root.visible
                 assert self.exit_btn.visible
+                assert self.table[0].visible
 
-                return self.table[0].visible
+                return self.table[1].visible
 
             except NoSuchElementException:
 
