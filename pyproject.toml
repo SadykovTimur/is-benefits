@@ -10,6 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
+requests = "^2.28.1"
 selenium = "4.9.1"
 webdriver-manager = "^3.8.3"
 coms-qa-ui = {version="^1.0.6", source='coms'}
@@ -78,6 +79,10 @@ show_error_codes = true
 disallow_untyped_calls = true
 namespace_packages = true
 explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["requests"]
+ignore_missing_imports = true
 
 [tool.pylint.messages_control]
 max-line-length = 120

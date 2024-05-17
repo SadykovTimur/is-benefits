@@ -11,13 +11,13 @@ __all__ = ['StartMapPage']
 
 
 class StartMapPage(Page):
-    header = Component(id="header")
+    logo = Component(css="[id='header'] img")
     map = Map(id="map")
 
     def wait_for_loading(self) -> None:
         def condition() -> bool:
             try:
-                assert self.header.visible
+                assert self.logo.visible
                 assert self.map.title.visible
                 assert self.map.dropdown.visible
                 assert self.map.map.visible
