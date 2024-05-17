@@ -18,7 +18,7 @@ def pytest_addoption(parser):
         dest='remote_ip',
         metavar='remote_ip',
         # default='internal:Xai6eedaeGhepeiwoh5M@cview-bal1p.passport.local',
-        default='selenoid3.m9',
+        default='selenoid1.kdc',
     )
 
     parser.addoption(
@@ -35,7 +35,7 @@ def pytest_addoption(parser):
         dest='remote_ui',
         metavar='remote_ui',
         # default='internal:Xai6eedaeGhepeiwoh5M@cview-bal1p.passport.local',
-        default='selenoid3.m9',
+        default='selenoid1.kdc',
     )
 
     parser.addoption(
@@ -65,5 +65,13 @@ def pytest_addoption(parser):
         help='Block request urls',
     )
 
-    parser.addoption('--user', action='store', dest='username', type=str, default='petrovp', help='Username')
-    parser.addoption('--password', action='store', dest='password', type=str, default='1234rewq', help='Password')
+    parser.addoption(
+        '--captcha_url',
+        help='A way to set remote url of captcha service',
+        dest='captcha_url',
+        metavar='captcha_url',
+        default='https://check.mos.ru/captcha',
+    )
+
+    parser.addoption('--user', action='store', dest='username', type=str, default='Sotrudnik10', help='Username')
+    parser.addoption('--password', action='store', dest='password', type=str, default='8l2oamIF9j', help='Password')

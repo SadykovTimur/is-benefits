@@ -16,7 +16,8 @@ class StartPage(Page):
     login = TextField(id="login_id")
     password = TextField(id="pass_id")
     submit = Button(id="arm_oto_id")
-    capcha = Component(id="checkKap")
+    captcha = TextField(id="checkKap")
+    captcha_image = Component(name='captcha')
 
     def wait_for_loading(self) -> None:
         def condition() -> bool:
@@ -25,7 +26,8 @@ class StartPage(Page):
                 assert self.title.visible
                 assert self.login.visible
                 assert self.password.visible
-                assert self.capcha.visible
+                assert self.captcha.visible
+                assert self.captcha_image.visible
 
                 return self.submit.visible
 
