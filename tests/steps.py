@@ -93,9 +93,9 @@ def open_subsidies_page(app: Application) -> None:
 def open_application(app: Application) -> None:
     with allure.step('Opening Application'):
         try:
-            field = SubsidiesPage(app).tasks[0].fields[2]
-            field.wait_for_clickability()
-            field.webelement.click()
+            task = SubsidiesPage(app).tasks[0]
+            task.wait_for_clickability()
+            task.webelement.click()
 
             ApplicationPage(app).wait_for_loading()
 
